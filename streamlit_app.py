@@ -7,7 +7,7 @@ from sklearn.cluster import AgglomerativeClustering
 from whatlies.language import CountVectorLanguage
 from whatlies.transformers import Pca, Umap
 
-uploaded = st.sidebar.file_uploader("Upload a File")
+uploaded = st.sidebar.file_uploader("Upload a `.txt` File")
 if not uploaded:
     txt = pathlib.Path("nlu.md").read_text()
     texts = [t.replace(" - ", "") for t in txt.split("\n") if len(t) > 0 and t[0] != "#"]
@@ -22,6 +22,7 @@ min_ngram, max_ngram = st.sidebar.slider("Range of ngrams", min_value=1, max_val
 reduction = st.sidebar.selectbox('Reduction Method', ('Umap', 'Pca'))
 
 st.markdown("# Simple Text Clustering")
+st.markdown("This app will attempt to cluster whatever text you give it. It is meant to inspire intents for Rasa `nlu.md` files. Stay tuned for `.yml` support!")
 lang = CountVectorLanguage(n_svd, ngram_range=(min_ngram, max_ngram))
 embset = lang[texts]
 
