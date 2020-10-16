@@ -1,0 +1,2 @@
+streamlit==0.69.1
+whatlies==0.5.4
