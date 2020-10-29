@@ -74,7 +74,7 @@ else:
     string_data = stringio.read()
     texts = [t.replace(" - ", "") for t in string_data.split("\n") if len(t) > 0 and t[0] != "#"]
 
-method = st.sidebar.selectbox("Select Embedding Method", ["CountVector SVD", "Lite Sentence Encoding"])
+method = st.sidebar.selectbox("Select Embedding Method", ["Lite Sentence Encoding", "CountVector SVD"])
 if method == "CountVector SVD":
     n_svd = st.sidebar.slider("Number of SVD components", min_value=2, max_value=100, step=1)
     min_ngram, max_ngram = st.sidebar.slider("Range of ngrams", min_value=1, max_value=5, step=1, value=(2, 3))
