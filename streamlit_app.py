@@ -48,7 +48,6 @@ hash_funcs={'_thread.RLock' : lambda _: None,
             'builtins.dict' : lambda _:None}
 
 
-@st.cache(hash_funcs=hash_funcs)
 def calculate_embeddings(messages):
     values, indices, dense_shape = process_to_IDs_in_sparse_format(sp, messages)
 
@@ -88,7 +87,8 @@ else:
     reduction = Pca(2)
 
 st.markdown("# Simple Text Clustering")
-st.markdown("Let's say you've gotten a lot of feedback from folks on social media. You might like to be able to distill main topics. It might even inspire some intents that will be used in a virtual assistant! This tool will help you discover them. This app will attempt to cluster whatever text you give it. The chart will try to clump text together and you can explore underlying patterns.")
+st.markdown("Let's say you've gotten a lot of feedback from clients on different channels. You might like to be able to distill main topics. It might even inspire some intents that will be used in a virtual assistant!")
+st.markdown("This tool will help you discover them. This app will attempt to cluster whatever text you give it. The chart will try to clump text together and you can explore underlying patterns.")
 
 if method == "CountVector SVD":
     lang = CountVectorLanguage(n_svd, ngram_range=(min_ngram, max_ngram))
